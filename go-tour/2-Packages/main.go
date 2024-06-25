@@ -63,7 +63,20 @@ func main() {
 	var z3 uint = uint(f3)
 	fmt.Println(x3, y3, z3)
 
-	// https: //go.dev/tour/basics/14
+	v := 42 // change me!
+	fmt.Printf("v is of type %T\n", v)
+
+	// Constants
+	const World = "世界" // Constants can be character, string, boolean, or numeric values.
+	fmt.Println("Hello", World)
+	fmt.Println("Happy", Pi, "Day")
+
+	const Truth = true
+	fmt.Println("Go rules?", Truth)
+
+	fmt.Println(needInt(Small))
+	fmt.Println(needFloat(Small))
+	fmt.Println(needFloat(Big))
 }
 
 func add(x int, y int) int { // or func add(x, y int)
@@ -78,6 +91,12 @@ func split(sum int) (x, y int) { // Named return values. This is known as a "nak
 	x = sum * 4 / 9
 	y = sum - x
 	return
+}
+
+func needInt(x int) int { return x*10 + 1 }
+
+func needFloat(x float64) float64 {
+	return x * 0.1
 }
 
 var c, python, java bool
@@ -124,4 +143,14 @@ var (
 	ToBe   bool       = false
 	MaxInt uint64     = 1<<64 - 1
 	z      complex128 = cmplx.Sqrt(-5 + 12i)
+)
+
+const Pi = 3.14
+
+const ( // Numeric constants are high-precision values.
+	// Create a huge number by shifting a 1 bit left 100 places.
+	// In other words, the binary number that is 1 followed by 100 zeroes.
+	Big = 1 << 100
+	// Shift it right again 99 places, so we end up with 1<<1, or 2.
+	Small = Big >> 99
 )
