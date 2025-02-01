@@ -21,3 +21,15 @@ Go lang - Statically typed langauge
 * var (Explicit typing)
     * When you want to explicitly declare the type for clarity.
     * When the variable is initialized later or with a zero value (e.g., var card string).
+
+
+#### Run two files form the same package
+go run main.go state.go 
+
+
+#### Array vs Slice
+In Go, an array is a fixed-size collection of elements, while a slice is a dynamically-sized, flexible view into an array or a portion of it.
+
+
+### Go lang
+Go is not purely procedural or purely object-oriented. It is a modern language that blends paradigms to provide a simple, efficient, and concurrent programming model. It uses procedural constructs, OOP-like features (without inheritance), and unique concurrency primitives to solve problems effectively.
