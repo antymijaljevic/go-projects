@@ -2,7 +2,10 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
+	"os"
 	"strconv"
+	"strings"
 )
 
 // a type can be somewhat analogous to a class in Python, but with some key differences. In Go, you define a type (often using a struct) to group related data, similar to how a class in Python
@@ -44,3 +47,32 @@ func (d deck) print() {
 func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
 }
+
+// to one single string with comma separation
+func (d deck) toString() string {
+	return strings.Join([]string(d), ",")
+}
+
+// stat -f "%Sp %OLp" cards_saved | to check permissions
+func (d deck) saveToFile(filename string) error {
+	return os.WriteFile(filename, []byte(d.toString()), 0666)
+}
+
+func newDeckFromFile(filename string) deck {
+	bs, err := os.ReadFile(filename)
+	if err != nil {
+		fmt.Println("Error:", err)
+		os.Exit(1)
+	}
+	s := strings.Split(string(bs), ",")
+	return deck(s) // nedded to use methos later
+}
+
+func (d deck) shuffle() {
+	for i := range d {
+		np := rand.Intn(len(d) - 1)
+		d[1], d[np] = d[np], d[i] //indices swap
+	}
+}
+
+// func Shuffle(n int, swap func(i, j int))
