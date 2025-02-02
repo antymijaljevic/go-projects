@@ -33,3 +33,14 @@ In Go, an array is a fixed-size collection of elements, while a slice is a dynam
 
 ### Go lang
 Go is not purely procedural or purely object-oriented. It is a modern language that blends paradigms to provide a simple, efficient, and concurrent programming model. It uses procedural constructs, OOP-like features (without inheritance), and unique concurrency primitives to solve problems effectively.
+
+#### Converting to Bytes
+A byte is a unit of data that consists of 8 bits. It can represent values from 0 to 255 (in decimal).
+
+Bytes are the fundamental building blocks for storing and manipulating data in computers.
+
+In Go, a byte is an alias for the uint8 type, meaning it can store values from 0 to 255.
+
+```
+You're not specifically converting the string to ASCII. You're converting it to a slice of bytes representing its UTF-8 encoding, which happens to match ASCII for ASCII characters.
+```
