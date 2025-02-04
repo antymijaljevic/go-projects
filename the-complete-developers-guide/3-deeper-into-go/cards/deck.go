@@ -6,6 +6,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
 
 // a type can be somewhat analogous to a class in Python, but with some key differences. In Go, you define a type (often using a struct) to group related data, similar to how a class in Python
@@ -69,8 +70,11 @@ func newDeckFromFile(filename string) deck {
 }
 
 func (d deck) shuffle() {
+	source := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(source)
+
 	for i := range d {
-		np := rand.Intn(len(d) - 1)
+		np := r.Intn(len(d) - 1)
 		d[1], d[np] = d[np], d[i] //indices swap
 	}
 }
