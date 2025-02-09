@@ -44,3 +44,6 @@ In Go, a byte is an alias for the uint8 type, meaning it can store values from 0
 ```
 You're not specifically converting the string to ASCII. You're converting it to a slice of bytes representing its UTF-8 encoding, which happens to match ASCII for ASCII characters.
 ```
+
+### Go Testing
+go test

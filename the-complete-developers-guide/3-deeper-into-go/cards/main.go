@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	// cards := newDeck()
@@ -8,15 +10,13 @@ func main() {
 	// fmt.Println(cards)
 
 	// Assignment
-	var ints []int
+	var numbers []int
 	for i := 0; i < 11; i++ {
-		ints = append(ints, i)
+		numbers = append(numbers, i)
 	}
 
-	for num := range ints {
-		if num == 0 {
-			fmt.Printf("%v is invalid number\n", num)
-		} else if num%2 == 0 {
+	for _, num := range numbers {
+		if num%2 == 0 {
 			fmt.Printf("%v is even\n", num)
 		} else {
 			fmt.Printf("%v is odd\n", num)

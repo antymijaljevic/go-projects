@@ -78,5 +78,3 @@ func (d deck) shuffle() {
 		d[1], d[np] = d[np], d[i] //indices swap
 	}
 }
-
-// func Shuffle(n int, swap func(i, j int))
